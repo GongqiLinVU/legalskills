@@ -1,0 +1,27 @@
+{
+  "patent_context": {
+    "patent_number": "AU2019200567",
+    "patent_title": "Robotic vacuum cleaner with obstacle avoidance mechanism",
+    "relevant_claims": ["1", "2"],
+    "claim_description": "A robotic vacuum cleaner comprising a navigation module, an obstacle detection mechanism arranged to sense objects in close proximity, and a path-planning unit adapted to dynamically adjust cleaning routes"
+  },
+  "claims": {
+    "claim_text": "A robotic vacuum cleaner comprising a navigation module, an obstacle detection mechanism arranged to sense objects in close proximity, and a path-planning unit adapted to dynamically adjust cleaning routes",
+    "structured_elements": [
+      { "id": "e1", "text": "robotic vacuum cleaner", "essential": true },
+      { "id": "e2", "text": "navigation module", "essential": true },
+      { "id": "e3", "text": "obstacle detection mechanism arranged to sense objects in close proximity", "essential": true },
+      { "id": "e4", "text": "path-planning unit adapted to dynamically adjust cleaning routes", "essential": true }
+    ],
+    "accused_product_description": "The CleanBot 3000 is a robotic vacuum with LiDAR-based room mapping, infrared bump sensors that detect collisions, and firmware that replans the cleaning path when the robot hits an obstacle.",
+    "element_mapping_facts": {
+      "e1": "CleanBot 3000 is a robotic vacuum cleaner — matched",
+      "e2": "LiDAR-based room mapping — satisfies navigation module",
+      "e3": "Infrared bump sensors detect collisions but may not sense objects 'in close proximity' before contact — ambiguous",
+      "e4": "Firmware replans path after collision, but unclear if this counts as 'adapted to dynamically adjust' — the patent may require anticipatory adjustment, not reactive"
+    },
+    "disputed_element_notes": "The phrase 'in close proximity' is disputed — does it require non-contact sensing, or do bump sensors count? The term 'adapted to dynamically adjust' is ambiguous — does reactive replanning after collision satisfy this, or must the system anticipate obstacles? The term 'mechanism' could cover any sensor arrangement or only the specific types described in the specification.",
+    "claim_construction_disputed": true,
+    "specification_notes": "The specification describes ultrasonic proximity sensors that detect obstacles before contact and a real-time path adjustment system. This supports a narrower reading requiring non-contact detection and anticipatory path adjustment."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "patent_context": {
+    "patent_number": "AU2022200567",
+    "patent_title": "Noise-cancelling headphone with adaptive frequency filtering",
+    "relevant_claims": ["1"],
+    "claim_description": "A noise-cancelling headphone comprising an adaptive frequency filter that dynamically adjusts noise cancellation parameters based on ambient sound profile analysis"
+  },
+  "claims": {
+    "claim_text": "A noise-cancelling headphone comprising an adaptive frequency filter that dynamically adjusts noise cancellation parameters based on ambient sound profile analysis",
+    "structured_elements": [
+      { "id": "e1", "text": "noise-cancelling headphone", "essential": true },
+      { "id": "e2", "text": "adaptive frequency filter", "essential": true },
+      { "id": "e3", "text": "dynamically adjusts noise cancellation parameters", "essential": true },
+      { "id": "e4", "text": "based on ambient sound profile analysis", "essential": true }
+    ],
+    "accused_product_description": "The SilentPro X1 headphone uses active noise cancellation with a multi-band equaliser that responds to environmental noise levels. The manufacturer describes it as having 'intelligent sound adaptation' but the internal mechanism is proprietary.",
+    "element_mapping_facts": {
+      "e1": "SilentPro X1 is a noise-cancelling headphone — matched",
+      "e2": "Multi-band equaliser may or may not constitute an 'adaptive frequency filter' — term is ambiguous"
+    },
+    "disputed_element_notes": "The term 'adaptive frequency filter' is disputed — it is unclear whether a multi-band equaliser that adjusts gain per band qualifies. The phrase 'ambient sound profile analysis' is also ambiguous — does simple dB-level measurement count, or must there be frequency-domain decomposition?",
+    "claim_construction_disputed": true
+  }
+}

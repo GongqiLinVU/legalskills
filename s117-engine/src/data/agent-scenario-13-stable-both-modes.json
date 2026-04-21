@@ -1,0 +1,27 @@
+{
+  "patent_context": {
+    "patent_number": "AU2022200890",
+    "patent_title": "Automated greenhouse ventilation system with temperature feedback",
+    "relevant_claims": ["1"],
+    "claim_description": "An automated greenhouse ventilation system comprising a temperature sensor array, a motorised vent actuator, and a control module configured to open vents when temperature exceeds a threshold"
+  },
+  "claims": {
+    "claim_text": "An automated greenhouse ventilation system comprising a temperature sensor array, a motorised vent actuator, and a control module configured to open vents when temperature exceeds a threshold",
+    "structured_elements": [
+      { "id": "e1", "text": "automated greenhouse ventilation system", "essential": true },
+      { "id": "e2", "text": "temperature sensor array", "essential": true },
+      { "id": "e3", "text": "motorised vent actuator", "essential": true },
+      { "id": "e4", "text": "control module configured to open vents when temperature exceeds a threshold", "essential": true }
+    ],
+    "accused_product_description": "The GreenAir Pro is an automated greenhouse vent controller with three digital temperature sensors, electric linear actuators on the roof vents, and a programmable logic controller that opens vents when temperature exceeds a user-set threshold.",
+    "element_mapping_facts": {
+      "e1": "GreenAir Pro is an automated greenhouse ventilation system — matched",
+      "e2": "Three digital temperature sensors constitute a temperature sensor array — matched",
+      "e3": "Electric linear actuators on roof vents — satisfies motorised vent actuator — matched",
+      "e4": "PLC opens vents when temp exceeds threshold — satisfies control module, though term 'module' is disputed"
+    },
+    "disputed_element_notes": "The term 'control module' in element e4 is disputed — does a general-purpose PLC configured via software qualify as a 'module', or must it be a dedicated hardware controller? The specification describes both PLCs and dedicated microcontrollers as suitable.",
+    "claim_construction_disputed": true,
+    "specification_notes": "The specification describes both dedicated microcontrollers and programmable controllers as suitable implementations of the control module."
+  }
+}

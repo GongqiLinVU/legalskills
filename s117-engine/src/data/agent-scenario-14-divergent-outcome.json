@@ -1,0 +1,27 @@
+{
+  "patent_context": {
+    "patent_number": "AU2020100345",
+    "patent_title": "Wearable fitness tracker with biometric authentication module",
+    "relevant_claims": ["1", "3"],
+    "claim_description": "A wearable fitness tracker comprising a heart rate sensor, a biometric authentication module adapted to verify user identity, and a wireless data transmission unit configured to transmit health data to a paired device"
+  },
+  "claims": {
+    "claim_text": "A wearable fitness tracker comprising a heart rate sensor, a biometric authentication module adapted to verify user identity, and a wireless data transmission unit configured to transmit health data to a paired device",
+    "structured_elements": [
+      { "id": "e1", "text": "wearable fitness tracker", "essential": true },
+      { "id": "e2", "text": "heart rate sensor", "essential": true },
+      { "id": "e3", "text": "biometric authentication module adapted to verify user identity", "essential": true },
+      { "id": "e4", "text": "wireless data transmission unit configured to transmit health data to a paired device", "essential": true }
+    ],
+    "accused_product_description": "The FitBand X200 is a wearable fitness band with an optical heart rate sensor, a PIN-based lock screen, Bluetooth connectivity that syncs daily step and heart rate summaries to a phone app.",
+    "element_mapping_facts": {
+      "e1": "FitBand X200 is a wearable fitness tracker — matched",
+      "e2": "Optical heart rate sensor present — matched",
+      "e3": "PIN-based lock screen — unclear if this is a 'biometric authentication module' — no biometric sensing present",
+      "e4": "Bluetooth syncs data to phone — may or may not constitute a 'wireless data transmission unit' as a distinct component"
+    },
+    "disputed_element_notes": "The term 'biometric authentication module' is disputed — the accused product uses PIN-based authentication, not biometrics. Under a broad reading, any user verification mechanism might suffice; under a narrow reading, biometric sensing hardware is required. The term 'wireless data transmission unit' is also contested — is Bluetooth data sync via a phone app the same as a dedicated transmission unit?",
+    "claim_construction_disputed": true,
+    "specification_notes": "The specification describes fingerprint and heart-rate-pattern biometric authentication and a dedicated Bluetooth Low Energy transceiver module for continuous health data streaming."
+  }
+}

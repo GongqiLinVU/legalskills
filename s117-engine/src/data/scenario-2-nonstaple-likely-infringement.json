@@ -1,0 +1,31 @@
+{
+  "description": "Scenario 2: Non-staple product with supplier knowledge — expected: likely_infringement",
+  "patent_context": {
+    "patent_number": "AU2019200456",
+    "patent_title": "Specialised dosing apparatus for agricultural chemicals",
+    "relevant_claims": ["1", "2", "5"],
+    "claim_description": "A dosing apparatus with a specific valve and metering arrangement for controlled release of agricultural chemicals"
+  },
+  "product": {
+    "product_name": "AgriDose Pro Metering Unit",
+    "product_description": "A specialised metering device designed specifically for use with the patented dosing apparatus. Has no substantial non-infringing use.",
+    "is_staple_commercial_product": "false",
+    "staple_reasoning": "The product is specifically designed for a single application that falls within the patent claims",
+    "has_non_infringing_uses": "false"
+  },
+  "supplier_conduct": {
+    "has_reason_to_believe": "true",
+    "reason_to_believe_details": "Supplier is a former licensee whose licence was terminated. Supplier has detailed knowledge of the patent and its claims.",
+    "provided_instructions_for_infringing_use": "true",
+    "instructions_details": "Product manual includes installation instructions that replicate the patented method",
+    "induced_or_advertised_infringing_use": "true",
+    "inducement_details": "Marketing materials reference compatibility with the patented system by name"
+  },
+  "evidence_flags": {
+    "has_expert_evidence": true,
+    "has_documentary_evidence": true,
+    "has_advertising_evidence": true,
+    "has_customer_testimony": true,
+    "evidence_notes": "Former licensee with full knowledge; marketing materials and product manuals available as evidence"
+  }
+}

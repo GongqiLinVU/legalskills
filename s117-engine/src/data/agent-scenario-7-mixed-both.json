@@ -1,0 +1,46 @@
+{
+  "patent_context": {
+    "patent_number": "AU2021100456",
+    "patent_title": "Automated nutrient dispensing system for hydroponic cultivation",
+    "relevant_claims": ["1", "2", "4"],
+    "claim_description": "An automated nutrient dispensing system comprising a pH sensor, an EC sensor, a programmable dispensing controller, and a nutrient reservoir with calibrated dosing pumps"
+  },
+  "product": {
+    "product_name": "HydroNutrient Pro Dispensing Module",
+    "product_description": "A specialised nutrient dispensing module designed for integration with hydroponic systems. Features pH and EC sensors, dosing controller, and calibrated pumps.",
+    "is_staple_commercial_product": "false",
+    "staple_reasoning": "The module is purpose-built for hydroponic nutrient dispensing with no substantial non-infringing use outside the patented system",
+    "has_non_infringing_uses": "false"
+  },
+  "supplier_conduct": {
+    "has_reason_to_believe": "true",
+    "reason_to_believe_details": "Supplier is a former distribution partner who was briefed on the patent during the partnership. Partnership terminated due to IP dispute.",
+    "provided_instructions_for_infringing_use": "true",
+    "instructions_details": "Product manual describes integration with the patented system by name and includes step-by-step setup matching the patented method",
+    "induced_or_advertised_infringing_use": "true",
+    "inducement_details": "Marketing materials promote the module as a 'drop-in replacement' for the patented system's dispensing unit"
+  },
+  "claims": {
+    "claim_text": "An automated nutrient dispensing system comprising a pH sensor; an EC sensor; a programmable dispensing controller; and a nutrient reservoir with calibrated dosing pumps",
+    "claim_elements": [
+      "pH sensor",
+      "EC sensor",
+      "programmable dispensing controller",
+      "nutrient reservoir with calibrated dosing pumps"
+    ],
+    "accused_product_description": "The HydroNutrient Pro module includes integrated pH and EC sensors, a microcontroller-based programmable dispensing unit, and connects to a nutrient reservoir via calibrated peristaltic dosing pumps.",
+    "element_mapping_facts": {
+      "elem_1": "pH sensor present and integrated — matched",
+      "elem_2": "EC sensor present and integrated — matched",
+      "elem_3": "Microcontroller-based programmable dispensing unit — satisfies this element",
+      "elem_4": "Calibrated peristaltic dosing pumps connected to reservoir — present"
+    }
+  },
+  "evidence": {
+    "has_expert_evidence": true,
+    "has_documentary_evidence": true,
+    "has_advertising_evidence": true,
+    "has_customer_testimony": false,
+    "evidence_notes": "Former partner with detailed knowledge; marketing materials and product manual available; expert report commissioned"
+  }
+}

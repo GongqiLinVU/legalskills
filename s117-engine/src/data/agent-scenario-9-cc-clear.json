@@ -1,0 +1,24 @@
+{
+  "patent_context": {
+    "patent_number": "AU2021200345",
+    "patent_title": "Waterproof LED strip light with adhesive backing",
+    "relevant_claims": ["1"],
+    "claim_description": "A waterproof LED strip light comprising a flexible PCB with surface-mounted LEDs, a silicone encapsulation layer, and a pressure-sensitive adhesive backing"
+  },
+  "claims": {
+    "claim_text": "A waterproof LED strip light comprising a flexible PCB with surface-mounted LEDs, a silicone encapsulation layer, and a pressure-sensitive adhesive backing",
+    "claim_elements": [
+      "flexible PCB with surface-mounted LEDs",
+      "silicone encapsulation layer",
+      "pressure-sensitive adhesive backing"
+    ],
+    "accused_product_description": "The LumiStrip Pro uses a flexible printed circuit board with SMD LEDs, a silicone waterproof coating, and 3M adhesive tape on the back for mounting.",
+    "element_mapping_facts": {
+      "elem_1": "Flexible PCB with SMD LEDs present — matched",
+      "elem_2": "Silicone waterproof coating present — matched",
+      "elem_3": "3M adhesive tape on back — satisfies pressure-sensitive adhesive backing"
+    },
+    "disputed_element_notes": "",
+    "claim_construction_disputed": true
+  }
+}

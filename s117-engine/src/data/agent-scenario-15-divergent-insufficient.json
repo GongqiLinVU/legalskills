@@ -1,0 +1,29 @@
+{
+  "patent_context": {
+    "patent_number": "AU2021200678",
+    "patent_title": "Modular solar panel mounting system with adaptive tilt mechanism",
+    "relevant_claims": ["1", "2"],
+    "claim_description": "A modular solar panel mounting system comprising a base frame assembly, an adaptive tilt mechanism arranged to adjust panel angle, a wind load sensor unit, and a control apparatus configured to optimise energy capture"
+  },
+  "claims": {
+    "claim_text": "A modular solar panel mounting system comprising a base frame assembly, an adaptive tilt mechanism arranged to adjust panel angle, a wind load sensor unit, and a control apparatus configured to optimise energy capture",
+    "structured_elements": [
+      { "id": "e1", "text": "modular solar panel mounting system", "essential": true },
+      { "id": "e2", "text": "base frame assembly", "essential": true },
+      { "id": "e3", "text": "adaptive tilt mechanism arranged to adjust panel angle", "essential": true },
+      { "id": "e4", "text": "wind load sensor unit", "essential": true },
+      { "id": "e5", "text": "control apparatus configured to optimise energy capture", "essential": true }
+    ],
+    "accused_product_description": "The SunTrack Lite is a solar panel mounting rail with a fixed tilt bracket. It has no motorised components, no wind sensors, and no electronic control system. Tilt angle is set manually during installation.",
+    "element_mapping_facts": {
+      "e1": "SunTrack Lite is a solar panel mounting system — matched",
+      "e2": "Mounting rail with bracket — may or may not qualify as a 'base frame assembly'",
+      "e3": "Fixed tilt bracket, manual adjustment only — unclear if 'adaptive tilt mechanism' requires motorised or automatic adjustment",
+      "e4": "No wind sensors present — absent",
+      "e5": "No electronic control system — unclear if manual installation angle selection could ever be a 'control apparatus configured to optimise'"
+    },
+    "disputed_element_notes": "The term 'adaptive tilt mechanism' is disputed — does it require automated or motorised adjustment, or could a manually adjustable bracket suffice? The term 'control apparatus configured to optimise' is also highly ambiguous — the accused product has no electronics. The 'base frame assembly' term could be read broadly to include any mounting rail or narrowly as a specific structural assembly.",
+    "claim_construction_disputed": true,
+    "specification_notes": "The specification describes a motorised actuator for the tilt mechanism and a microcontroller-based control apparatus with software optimisation algorithms."
+  }
+}

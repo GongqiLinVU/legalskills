@@ -1,0 +1,22 @@
+{
+  "patent_context": {
+    "patent_number": "AU2020200789",
+    "patent_title": "Smart irrigation controller with soil moisture feedback",
+    "relevant_claims": ["1", "2"],
+    "claim_description": "A smart irrigation controller comprising a soil moisture sensor, a wireless communication module, and an adaptive watering schedule algorithm"
+  },
+  "claims": {
+    "claim_text": "A smart irrigation controller comprising a soil moisture sensor; a wireless communication module for transmitting sensor data; and an adaptive watering schedule algorithm that adjusts irrigation timing based on real-time soil moisture readings",
+    "claim_elements": [
+      "soil moisture sensor",
+      "wireless communication module for transmitting sensor data",
+      "adaptive watering schedule algorithm adjusting irrigation timing based on real-time soil moisture readings"
+    ],
+    "accused_product_description": "The AquaSmart Pro controller includes a built-in soil moisture sensor, WiFi module that transmits moisture data to a cloud service, and a proprietary algorithm that dynamically adjusts watering schedules in real time based on soil moisture sensor readings.",
+    "element_mapping_facts": {
+      "elem_1": "Accused product contains a soil moisture sensor — matched",
+      "elem_2": "WiFi module transmits sensor data to cloud — satisfies wireless communication module",
+      "elem_3": "Proprietary algorithm adjusts irrigation timing based on real-time moisture readings — present"
+    }
+  }
+}

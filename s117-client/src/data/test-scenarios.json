@@ -1,0 +1,585 @@
+[
+  {
+    "id": "staple-no-inducement",
+    "name": "Staple Product, No Inducement",
+    "description": "Generic commodity product with no supplier misconduct. Expected: Unlikely Infringement.",
+    "expected_result": "unlikely_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2020100001",
+        "patent_title": "Improved fastening mechanism for modular panels",
+        "relevant_claims": ["1", "3"],
+        "claim_description": "A method of fastening modular panels using a specific clip arrangement"
+      },
+      "product": {
+        "product_name": "Standard metal clips (box of 500)",
+        "product_description": "Generic metal clips sold at hardware stores for general fastening purposes",
+        "is_staple_commercial_product": "true",
+        "staple_reasoning": "Metal clips are a widely available commodity product with many non-infringing uses",
+        "has_non_infringing_uses": "true"
+      },
+      "supplier_conduct": {
+        "has_reason_to_believe": "false",
+        "reason_to_believe_details": "Supplier sells general hardware products and has no specific knowledge of the patent",
+        "provided_instructions_for_infringing_use": "false",
+        "instructions_details": "",
+        "induced_or_advertised_infringing_use": "false",
+        "inducement_details": ""
+      },
+      "evidence_flags": {
+        "has_expert_evidence": false,
+        "has_documentary_evidence": false,
+        "has_advertising_evidence": false,
+        "has_customer_testimony": false,
+        "evidence_notes": "No evidence of any supplier conduct directed toward patent infringement"
+      }
+    }
+  },
+  {
+    "id": "nonstaple-likely-infringement",
+    "name": "Non-Staple Product, Supplier Knowledge",
+    "description": "Purpose-built product from a former licensee with full knowledge and active marketing. Expected: Likely Infringement.",
+    "expected_result": "likely_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2019200456",
+        "patent_title": "Specialised dosing apparatus for agricultural chemicals",
+        "relevant_claims": ["1", "2", "5"],
+        "claim_description": "A dosing apparatus with a specific valve and metering arrangement for controlled release of agricultural chemicals"
+      },
+      "product": {
+        "product_name": "AgriDose Pro Metering Unit",
+        "product_description": "A specialised metering device designed specifically for use with the patented dosing apparatus. Has no substantial non-infringing use.",
+        "is_staple_commercial_product": "false",
+        "staple_reasoning": "The product is specifically designed for a single application that falls within the patent claims",
+        "has_non_infringing_uses": "false"
+      },
+      "supplier_conduct": {
+        "has_reason_to_believe": "true",
+        "reason_to_believe_details": "Supplier is a former licensee whose licence was terminated. Supplier has detailed knowledge of the patent and its claims.",
+        "provided_instructions_for_infringing_use": "true",
+        "instructions_details": "Product manual includes installation instructions that replicate the patented method",
+        "induced_or_advertised_infringing_use": "true",
+        "inducement_details": "Marketing materials reference compatibility with the patented system by name"
+      },
+      "evidence_flags": {
+        "has_expert_evidence": true,
+        "has_documentary_evidence": true,
+        "has_advertising_evidence": true,
+        "has_customer_testimony": true,
+        "evidence_notes": "Former licensee with full knowledge; marketing materials and product manuals available as evidence"
+      }
+    }
+  },
+  {
+    "id": "staple-with-inducement",
+    "name": "Staple Product + Strong Inducement",
+    "description": "Commodity product, but supplier was warned and actively promotes infringing use. Expected: Possible Infringement.",
+    "expected_result": "possible_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2021100789",
+        "patent_title": "Method for enhanced concrete curing using polymer additives",
+        "relevant_claims": ["1", "4"],
+        "claim_description": "A method of curing concrete involving the application of a specific polymer additive at controlled temperatures"
+      },
+      "product": {
+        "product_name": "PolyCure Standard Polymer Additive (25kg bag)",
+        "product_description": "A polymer additive commonly used in construction for various concrete treatment purposes. Widely available from multiple suppliers.",
+        "is_staple_commercial_product": "true",
+        "staple_reasoning": "Polymer additives for concrete are widely sold commodity products with many uses beyond the patented method",
+        "has_non_infringing_uses": "true"
+      },
+      "supplier_conduct": {
+        "has_reason_to_believe": "true",
+        "reason_to_believe_details": "Supplier was sent a cease-and-desist letter identifying the patent and explaining the infringing use. Supplier continued sales.",
+        "provided_instructions_for_infringing_use": "true",
+        "instructions_details": "Supplier's product data sheet includes a specific section titled 'Enhanced Curing Method' that replicates the patented process step by step",
+        "induced_or_advertised_infringing_use": "true",
+        "inducement_details": "Supplier ran trade magazine advertisements promoting their product specifically for the enhanced curing method described in the patent"
+      },
+      "evidence_flags": {
+        "has_expert_evidence": false,
+        "has_documentary_evidence": true,
+        "has_advertising_evidence": true,
+        "has_customer_testimony": false,
+        "evidence_notes": "Cease-and-desist letter on file; advertising materials and product data sheet available"
+      }
+    }
+  },
+  {
+    "id": "mixed-incomplete",
+    "name": "Mixed / Incomplete Case",
+    "description": "Incomplete data with uncertain supplier conduct. Tests graceful degradation. Expected: Insufficient Information.",
+    "expected_result": "insufficient_information",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2022200123",
+        "patent_title": "Adaptive cooling system for industrial machinery",
+        "relevant_claims": ["1", "3", "7"],
+        "claim_description": "A cooling system comprising a variable-speed pump and adaptive thermostat for maintaining optimal operating temperature"
+      },
+      "product": {
+        "product_name": "CoolFlow Adaptive Pump Module",
+        "product_description": "A variable-speed pump module marketed for industrial cooling applications"
+      },
+      "supplier_conduct": {
+        "has_reason_to_believe": "uncertain",
+        "reason_to_believe_details": "Supplier may have seen the patent but this is not confirmed",
+        "provided_instructions_for_infringing_use": "uncertain",
+        "instructions_details": "",
+        "induced_or_advertised_infringing_use": "uncertain",
+        "inducement_details": ""
+      },
+      "evidence_flags": {
+        "has_expert_evidence": false,
+        "has_documentary_evidence": false,
+        "has_advertising_evidence": false,
+        "has_customer_testimony": false,
+        "evidence_notes": "Limited evidence gathered so far"
+      }
+    }
+  },
+  {
+    "id": "direct-likely",
+    "name": "Direct Infringement — All Elements Matched",
+    "description": "Smart irrigation controller where all claim elements are present in the accused product. Expected: Likely Infringement.",
+    "expected_result": "likely_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2020200789",
+        "patent_title": "Smart irrigation controller with soil moisture feedback",
+        "relevant_claims": ["1", "2"],
+        "claim_description": "A smart irrigation controller comprising a soil moisture sensor, a wireless communication module, and an adaptive watering schedule algorithm"
+      },
+      "claims": {
+        "claim_text": "A smart irrigation controller comprising a soil moisture sensor; a wireless communication module for transmitting sensor data; and an adaptive watering schedule algorithm that adjusts irrigation timing based on real-time soil moisture readings",
+        "claim_elements": [
+          "soil moisture sensor",
+          "wireless communication module for transmitting sensor data",
+          "adaptive watering schedule algorithm adjusting irrigation timing based on real-time soil moisture readings"
+        ],
+        "accused_product_description": "The AquaSmart Pro controller includes a built-in soil moisture sensor, WiFi module that transmits moisture data to a cloud service, and a proprietary algorithm that dynamically adjusts watering schedules in real time based on soil moisture sensor readings.",
+        "element_mapping_facts": {
+          "elem_1": "Accused product contains a soil moisture sensor — matched",
+          "elem_2": "WiFi module transmits sensor data to cloud — satisfies wireless communication module",
+          "elem_3": "Proprietary algorithm adjusts irrigation timing based on real-time moisture readings — present"
+        }
+      }
+    }
+  },
+  {
+    "id": "direct-unlikely",
+    "name": "Direct Infringement — Missing Elements",
+    "description": "Thermal insulation panel where key elements (phase-change core, aerogel) are absent. Expected: Unlikely Infringement.",
+    "expected_result": "unlikely_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2019200234",
+        "patent_title": "Multi-layer thermal insulation panel with phase-change core",
+        "relevant_claims": ["1", "3"],
+        "claim_description": "A thermal insulation panel comprising an outer reflective layer, a phase-change material core, an inner aerogel insulation layer, and a thermally conductive adhesive"
+      },
+      "claims": {
+        "claim_elements": [
+          "outer reflective layer",
+          "phase-change material core for thermal energy storage",
+          "inner aerogel insulation layer",
+          "thermally conductive adhesive bonding the layers"
+        ],
+        "accused_product_description": "The ThermoGuard Standard Panel uses a reflective outer foil and a fibreglass insulation core. It does not contain any phase-change material or aerogel layer. Layers are bonded with standard construction adhesive.",
+        "element_mapping_facts": {
+          "elem_1": "Reflective outer foil present — matched",
+          "elem_2": "No phase-change material in the product — absent",
+          "elem_3": "Uses fibreglass, not aerogel — does not satisfy this element",
+          "elem_4": "Standard adhesive, not thermally conductive — not present"
+        }
+      }
+    }
+  },
+  {
+    "id": "mixed-both-skills",
+    "name": "Both Direct + s117 Infringement",
+    "description": "Hydroponic nutrient system — all claim elements matched AND supplier has knowledge/inducement. Both skills triggered. Expected: Likely Infringement.",
+    "expected_result": "likely_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2021100456",
+        "patent_title": "Automated nutrient dispensing system for hydroponic cultivation",
+        "relevant_claims": ["1", "2", "4"],
+        "claim_description": "An automated nutrient dispensing system comprising a pH sensor, an EC sensor, a programmable dispensing controller, and a nutrient reservoir with calibrated dosing pumps"
+      },
+      "product": {
+        "product_name": "HydroNutrient Pro Dispensing Module",
+        "product_description": "A specialised nutrient dispensing module designed for integration with hydroponic systems",
+        "is_staple_commercial_product": "false",
+        "staple_reasoning": "The module is purpose-built for hydroponic nutrient dispensing with no substantial non-infringing use",
+        "has_non_infringing_uses": "false"
+      },
+      "supplier_conduct": {
+        "has_reason_to_believe": "true",
+        "reason_to_believe_details": "Supplier is a former distribution partner briefed on the patent during the partnership",
+        "provided_instructions_for_infringing_use": "true",
+        "instructions_details": "Product manual describes integration with the patented system by name",
+        "induced_or_advertised_infringing_use": "true",
+        "inducement_details": "Marketing materials promote the module as a drop-in replacement for the patented system"
+      },
+      "claims": {
+        "claim_elements": [
+          "pH sensor",
+          "EC sensor",
+          "programmable dispensing controller",
+          "nutrient reservoir with calibrated dosing pumps"
+        ],
+        "accused_product_description": "The HydroNutrient Pro module includes integrated pH and EC sensors, a microcontroller-based programmable dispensing unit, and connects to a nutrient reservoir via calibrated peristaltic dosing pumps.",
+        "element_mapping_facts": {
+          "elem_1": "pH sensor present and integrated — matched",
+          "elem_2": "EC sensor present and integrated — matched",
+          "elem_3": "Microcontroller-based programmable dispensing unit — satisfies this element",
+          "elem_4": "Calibrated peristaltic dosing pumps connected to reservoir — present"
+        }
+      },
+      "evidence_flags": {
+        "has_expert_evidence": true,
+        "has_documentary_evidence": true,
+        "has_advertising_evidence": true,
+        "has_customer_testimony": false,
+        "evidence_notes": "Former partner with detailed knowledge; marketing materials and product manual available"
+      }
+    }
+  },
+  {
+    "id": "claim-construction-needed",
+    "name": "Claim Construction Recommended",
+    "description": "Noise-cancelling headphone with ambiguous claim terms. Disputed elements cause uncertainty. Expected: Possible Infringement.",
+    "expected_result": "possible_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2022200567",
+        "patent_title": "Noise-cancelling headphone with adaptive frequency filtering",
+        "relevant_claims": ["1"],
+        "claim_description": "A noise-cancelling headphone comprising an adaptive frequency filter that dynamically adjusts noise cancellation parameters based on ambient sound profile analysis"
+      },
+      "claims": {
+        "claim_elements": [
+          "noise-cancelling headphone",
+          "adaptive frequency filter",
+          "dynamically adjusts noise cancellation parameters",
+          "based on ambient sound profile analysis"
+        ],
+        "accused_product_description": "The SilentPro X1 headphone uses active noise cancellation with a multi-band equaliser that responds to environmental noise levels. The manufacturer describes it as having intelligent sound adaptation but the internal mechanism is proprietary.",
+        "disputed_element_notes": "The term 'adaptive frequency filter' is disputed — unclear whether a multi-band equaliser qualifies. The phrase 'ambient sound profile analysis' is ambiguous — does simple dB-level measurement count, or must there be frequency-domain decomposition?",
+        "claim_construction_disputed": true
+      }
+    }
+  },
+  {
+    "id": "cc-clear-wording",
+    "name": "CC: Clear Wording, No Sensitivity",
+    "description": "LED strip light with clear claim terms. Claim construction flagged but no ambiguity detected. Expected: Likely Infringement.",
+    "expected_result": "likely_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2021200345",
+        "patent_title": "Waterproof LED strip light with adhesive backing",
+        "relevant_claims": ["1"],
+        "claim_description": "A waterproof LED strip light comprising a flexible PCB with surface-mounted LEDs, a silicone encapsulation layer, and a pressure-sensitive adhesive backing"
+      },
+      "claims": {
+        "claim_text": "A waterproof LED strip light comprising a flexible PCB with surface-mounted LEDs, a silicone encapsulation layer, and a pressure-sensitive adhesive backing",
+        "claim_elements": [
+          "flexible PCB with surface-mounted LEDs",
+          "silicone encapsulation layer",
+          "pressure-sensitive adhesive backing"
+        ],
+        "accused_product_description": "The LumiStrip Pro uses a flexible printed circuit board with SMD LEDs, a silicone waterproof coating, and 3M adhesive tape on the back for mounting.",
+        "element_mapping_facts": {
+          "elem_1": "Flexible PCB with SMD LEDs present — matched",
+          "elem_2": "Silicone waterproof coating present — matched",
+          "elem_3": "3M adhesive tape on back — satisfies pressure-sensitive adhesive backing"
+        },
+        "disputed_element_notes": "",
+        "claim_construction_disputed": true
+      }
+    }
+  },
+  {
+    "id": "cc-disputed-terms",
+    "name": "CC: Disputed Terms Affect Matching",
+    "description": "Smart irrigation controller with disputed 'wireless module' and 'adaptive algorithm'. Broad view: likely; Narrow view: unlikely. Expected: Possible Infringement.",
+    "expected_result": "possible_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2020200891",
+        "patent_title": "Smart garden irrigation system with adaptive scheduling",
+        "relevant_claims": ["1", "3"],
+        "claim_description": "A smart irrigation controller comprising a soil moisture sensor, a wireless communication module for transmitting sensor data, and an adaptive watering schedule algorithm configured to adjust irrigation timing based on real-time soil moisture readings"
+      },
+      "claims": {
+        "claim_text": "A smart irrigation controller comprising a soil moisture sensor, a wireless communication module for transmitting sensor data, and an adaptive watering schedule algorithm configured to adjust irrigation timing based on real-time soil moisture readings",
+        "structured_elements": [
+          { "id": "e1", "text": "soil moisture sensor", "essential": true },
+          { "id": "e2", "text": "wireless communication module for transmitting sensor data", "essential": true },
+          { "id": "e3", "text": "adaptive watering schedule algorithm configured to adjust irrigation timing", "essential": true },
+          { "id": "e4", "text": "based on real-time soil moisture readings", "essential": true }
+        ],
+        "accused_product_description": "The GreenBot G5 controller includes a capacitive soil sensor, Bluetooth data link to a phone app, and a preset watering timer that users can manually adjust after checking soil readings on their phone.",
+        "element_mapping_facts": {
+          "e1": "Capacitive soil sensor present — matched",
+          "e2": "Bluetooth data link may or may not constitute a 'wireless communication module' — the claim may require a dedicated module rather than a phone link"
+        },
+        "disputed_element_notes": "The term 'wireless communication module' is disputed — does a Bluetooth phone link qualify as a 'module'? The phrase 'adaptive watering schedule algorithm' is also contested — the accused product uses manual timer adjustment, not an autonomous algorithm. The term 'configured to' may imply either inherent capability or active configuration.",
+        "claim_construction_disputed": true,
+        "specification_notes": "The patent specification describes a dedicated wireless radio module and an on-device algorithm that operates without user intervention. This suggests a narrower interpretation of both the communication module and the adaptive algorithm."
+      }
+    }
+  },
+  {
+    "id": "cc-broad-narrow-diverge",
+    "name": "CC: Broad vs Narrow Changes Result",
+    "description": "Robotic vacuum with disputed 'close proximity' sensing and 'adapted to' language. Broad view: likely infringement. Narrow view: unlikely. Expected: Possible Infringement.",
+    "expected_result": "possible_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2019200567",
+        "patent_title": "Robotic vacuum cleaner with obstacle avoidance mechanism",
+        "relevant_claims": ["1", "2"],
+        "claim_description": "A robotic vacuum cleaner comprising a navigation module, an obstacle detection mechanism arranged to sense objects in close proximity, and a path-planning unit adapted to dynamically adjust cleaning routes"
+      },
+      "claims": {
+        "claim_text": "A robotic vacuum cleaner comprising a navigation module, an obstacle detection mechanism arranged to sense objects in close proximity, and a path-planning unit adapted to dynamically adjust cleaning routes",
+        "structured_elements": [
+          { "id": "e1", "text": "robotic vacuum cleaner", "essential": true },
+          { "id": "e2", "text": "navigation module", "essential": true },
+          { "id": "e3", "text": "obstacle detection mechanism arranged to sense objects in close proximity", "essential": true },
+          { "id": "e4", "text": "path-planning unit adapted to dynamically adjust cleaning routes", "essential": true }
+        ],
+        "accused_product_description": "The CleanBot 3000 is a robotic vacuum with LiDAR-based room mapping, infrared bump sensors that detect collisions, and firmware that replans the cleaning path when the robot hits an obstacle.",
+        "element_mapping_facts": {
+          "e1": "CleanBot 3000 is a robotic vacuum cleaner — matched",
+          "e2": "LiDAR-based room mapping — satisfies navigation module",
+          "e3": "Infrared bump sensors detect collisions but may not sense objects 'in close proximity' before contact — ambiguous",
+          "e4": "Firmware replans path after collision, but unclear if this counts as 'adapted to dynamically adjust' — the patent may require anticipatory adjustment, not reactive"
+        },
+        "disputed_element_notes": "The phrase 'in close proximity' is disputed — does it require non-contact sensing, or do bump sensors count? The term 'adapted to dynamically adjust' is ambiguous — does reactive replanning after collision satisfy this, or must the system anticipate obstacles? The term 'mechanism' could cover any sensor arrangement or only the specific types described in the specification.",
+        "claim_construction_disputed": true,
+        "specification_notes": "The specification describes ultrasonic proximity sensors that detect obstacles before contact and a real-time path adjustment system. This supports a narrower reading requiring non-contact detection and anticipatory path adjustment."
+      }
+    }
+  },
+  {
+    "id": "cc-plus-s117-combined",
+    "name": "CC + DI + s117: All Three Skills",
+    "description": "Air quality monitor — disputed 'wireless module' + non-staple product from former contractor. All three skills execute. Expected: Likely Infringement.",
+    "expected_result": "likely_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2021100789",
+        "patent_title": "Portable air quality monitoring device with wireless alert system",
+        "relevant_claims": ["1", "4"],
+        "claim_description": "A portable air quality monitoring device comprising a particulate matter sensor module, a gas detection unit, a wireless communication module configured to transmit alert data, and a threshold-based notification mechanism"
+      },
+      "product": {
+        "product_name": "AirSafe Mini Sensor Kit",
+        "product_description": "A compact air quality sensor kit sold to building managers and HVAC contractors for indoor air monitoring.",
+        "is_staple_commercial_product": "false",
+        "staple_reasoning": "The AirSafe Mini is specifically designed for the patented air quality monitoring and alert application",
+        "has_non_infringing_uses": "false"
+      },
+      "supplier_conduct": {
+        "has_reason_to_believe": "true",
+        "reason_to_believe_details": "Former contract manufacturer with detailed knowledge of the patented system design.",
+        "provided_instructions_for_infringing_use": "true",
+        "instructions_details": "Setup guide references alert thresholds from the patent specification.",
+        "induced_or_advertised_infringing_use": "true",
+        "inducement_details": "Marketing materials describe the product as a 'compatible alternative' to the patented monitoring system."
+      },
+      "claims": {
+        "claim_text": "A portable air quality monitoring device comprising a particulate matter sensor module, a gas detection unit, a wireless communication module configured to transmit alert data, and a threshold-based notification mechanism",
+        "structured_elements": [
+          { "id": "e1", "text": "portable air quality monitoring device", "essential": true },
+          { "id": "e2", "text": "particulate matter sensor module", "essential": true },
+          { "id": "e3", "text": "gas detection unit", "essential": true },
+          { "id": "e4", "text": "wireless communication module configured to transmit alert data", "essential": true },
+          { "id": "e5", "text": "threshold-based notification mechanism", "essential": true }
+        ],
+        "accused_product_description": "The AirSafe Mini includes a PM2.5 sensor, a VOC gas sensor, WiFi connectivity for sending data to a cloud dashboard, and an app-based push notification system with configurable thresholds.",
+        "element_mapping_facts": {
+          "e1": "AirSafe Mini is a portable air quality monitoring device — matched",
+          "e2": "PM2.5 sensor present — matched",
+          "e3": "VOC gas sensor present — matched",
+          "e4": "WiFi connectivity transmits data to cloud — may or may not constitute a 'wireless communication module' as a distinct component",
+          "e5": "App-based push notifications with configurable thresholds — matches threshold-based notification"
+        },
+        "disputed_element_notes": "The term 'wireless communication module' is disputed — is WiFi to a cloud dashboard the same as a dedicated 'module configured to transmit alert data'? The term 'module' may require a discrete hardware component.",
+        "claim_construction_disputed": true,
+        "specification_notes": "The patent specification describes a dedicated radio transceiver module for direct device-to-device alert transmission, not cloud-mediated notifications."
+      },
+      "evidence": {
+        "has_expert_evidence": true,
+        "has_documentary_evidence": true,
+        "has_advertising_evidence": true,
+        "has_customer_testimony": false,
+        "evidence_notes": "Former contract manufacturer with detailed knowledge; marketing materials and setup guide available."
+      }
+    }
+  },
+  {
+    "id": "s35-stable-both-modes",
+    "name": "S3.5: Stable Under Both Modes",
+    "description": "Greenhouse vent system — disputed 'control module' but both broad and narrow readings lead to infringement. Expected: Likely Infringement.",
+    "expected_result": "likely_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2022200890",
+        "patent_title": "Automated greenhouse ventilation system with temperature feedback",
+        "relevant_claims": ["1"],
+        "claim_description": "An automated greenhouse ventilation system comprising a temperature sensor array, a motorised vent actuator, and a control module configured to open vents when temperature exceeds a threshold"
+      },
+      "claims": {
+        "claim_text": "An automated greenhouse ventilation system comprising a temperature sensor array, a motorised vent actuator, and a control module configured to open vents when temperature exceeds a threshold",
+        "structured_elements": [
+          { "id": "e1", "text": "automated greenhouse ventilation system", "essential": true },
+          { "id": "e2", "text": "temperature sensor array", "essential": true },
+          { "id": "e3", "text": "motorised vent actuator", "essential": true },
+          { "id": "e4", "text": "control module configured to open vents when temperature exceeds a threshold", "essential": true }
+        ],
+        "accused_product_description": "The GreenAir Pro is an automated greenhouse vent controller with three digital temperature sensors, electric linear actuators on the roof vents, and a programmable logic controller that opens vents when temperature exceeds a user-set threshold.",
+        "element_mapping_facts": {
+          "e1": "GreenAir Pro is an automated greenhouse ventilation system — matched",
+          "e2": "Three digital temperature sensors constitute a temperature sensor array — matched",
+          "e3": "Electric linear actuators on roof vents — satisfies motorised vent actuator — matched",
+          "e4": "PLC opens vents when temp exceeds threshold — satisfies control module, though term 'module' is disputed"
+        },
+        "disputed_element_notes": "The term 'control module' in element e4 is disputed — does a general-purpose PLC configured via software qualify as a 'module', or must it be a dedicated hardware controller? The specification describes both PLCs and dedicated microcontrollers as suitable.",
+        "claim_construction_disputed": true,
+        "specification_notes": "The specification describes both dedicated microcontrollers and programmable controllers as suitable implementations of the control module."
+      }
+    }
+  },
+  {
+    "id": "s35-divergent-outcome",
+    "name": "S3.5: Broad/Narrow Diverge",
+    "description": "Fitness tracker — 'biometric module' requires biometrics (narrow) or any auth (broad). Broad: likely infringement. Narrow: unlikely. Expected: Possible Infringement.",
+    "expected_result": "possible_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2020100345",
+        "patent_title": "Wearable fitness tracker with biometric authentication module",
+        "relevant_claims": ["1", "3"],
+        "claim_description": "A wearable fitness tracker comprising a heart rate sensor, a biometric authentication module adapted to verify user identity, and a wireless data transmission unit configured to transmit health data to a paired device"
+      },
+      "claims": {
+        "claim_text": "A wearable fitness tracker comprising a heart rate sensor, a biometric authentication module adapted to verify user identity, and a wireless data transmission unit configured to transmit health data to a paired device",
+        "structured_elements": [
+          { "id": "e1", "text": "wearable fitness tracker", "essential": true },
+          { "id": "e2", "text": "heart rate sensor", "essential": true },
+          { "id": "e3", "text": "biometric authentication module adapted to verify user identity", "essential": true },
+          { "id": "e4", "text": "wireless data transmission unit configured to transmit health data to a paired device", "essential": true }
+        ],
+        "accused_product_description": "The FitBand X200 is a wearable fitness band with an optical heart rate sensor, a PIN-based lock screen, Bluetooth connectivity that syncs daily step and heart rate summaries to a phone app.",
+        "element_mapping_facts": {
+          "e1": "FitBand X200 is a wearable fitness tracker — matched",
+          "e2": "Optical heart rate sensor present — matched",
+          "e3": "PIN-based lock screen — unclear if this is a 'biometric authentication module' — no biometric sensing present",
+          "e4": "Bluetooth syncs data to phone — may or may not constitute a 'wireless data transmission unit' as a distinct component"
+        },
+        "disputed_element_notes": "The term 'biometric authentication module' is disputed — the accused product uses PIN-based authentication, not biometrics. Under a broad reading, any user verification mechanism might suffice; under a narrow reading, biometric sensing hardware is required. The term 'wireless data transmission unit' is also contested — is Bluetooth data sync via a phone app the same as a dedicated transmission unit?",
+        "claim_construction_disputed": true,
+        "specification_notes": "The specification describes fingerprint and heart-rate-pattern biometric authentication and a dedicated Bluetooth Low Energy transceiver module for continuous health data streaming."
+      }
+    }
+  },
+  {
+    "id": "s35-divergent-insufficient",
+    "name": "S3.5: Divergent + Insufficient",
+    "description": "Solar panel mount — too many missing/uncertain elements under any reading. Expected: Possible Infringement (divergent but insufficient in one mode).",
+    "expected_result": "possible_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2021200678",
+        "patent_title": "Modular solar panel mounting system with adaptive tilt mechanism",
+        "relevant_claims": ["1", "2"],
+        "claim_description": "A modular solar panel mounting system comprising a base frame assembly, an adaptive tilt mechanism arranged to adjust panel angle, a wind load sensor unit, and a control apparatus configured to optimise energy capture"
+      },
+      "claims": {
+        "claim_text": "A modular solar panel mounting system comprising a base frame assembly, an adaptive tilt mechanism arranged to adjust panel angle, a wind load sensor unit, and a control apparatus configured to optimise energy capture",
+        "structured_elements": [
+          { "id": "e1", "text": "modular solar panel mounting system", "essential": true },
+          { "id": "e2", "text": "base frame assembly", "essential": true },
+          { "id": "e3", "text": "adaptive tilt mechanism arranged to adjust panel angle", "essential": true },
+          { "id": "e4", "text": "wind load sensor unit", "essential": true },
+          { "id": "e5", "text": "control apparatus configured to optimise energy capture", "essential": true }
+        ],
+        "accused_product_description": "The SunTrack Lite is a solar panel mounting rail with a fixed tilt bracket. It has no motorised components, no wind sensors, and no electronic control system. Tilt angle is set manually during installation.",
+        "element_mapping_facts": {
+          "e1": "SunTrack Lite is a solar panel mounting system — matched",
+          "e2": "Mounting rail with bracket — may or may not qualify as a 'base frame assembly'",
+          "e3": "Fixed tilt bracket, manual adjustment only — unclear if 'adaptive tilt mechanism' requires motorised or automatic adjustment",
+          "e4": "No wind sensors present — absent",
+          "e5": "No electronic control system — unclear if manual installation angle selection could ever be a 'control apparatus configured to optimise'"
+        },
+        "disputed_element_notes": "The term 'adaptive tilt mechanism' is disputed — does it require automated or motorised adjustment, or could a manually adjustable bracket suffice? The term 'control apparatus configured to optimise' is also highly ambiguous — the accused product has no electronics. The 'base frame assembly' term could be read broadly to include any mounting rail or narrowly as a specific structural assembly.",
+        "claim_construction_disputed": true,
+        "specification_notes": "The specification describes a motorised actuator for the tilt mechanism and a microcontroller-based control apparatus with software optimisation algorithms."
+      }
+    }
+  },
+  {
+    "id": "s35-mixed-diverge-s117",
+    "name": "S3.5: DI Diverges + s117 Strong",
+    "description": "HVAC controller — DI diverges (broad likely, narrow unlikely) but s117 is strong due to non-staple + former JV partner. Expected: Likely Infringement.",
+    "expected_result": "likely_infringement",
+    "data": {
+      "patent_context": {
+        "patent_number": "AU2023100123",
+        "patent_title": "Smart HVAC control unit with predictive maintenance module",
+        "relevant_claims": ["1", "5"],
+        "claim_description": "A smart HVAC control unit comprising a temperature and humidity sensor array, a compressor control module configured to modulate cooling output, a predictive maintenance module adapted to forecast component failure, and a wireless reporting unit"
+      },
+      "product": {
+        "product_name": "ClimaCore Pro Controller",
+        "product_description": "A smart HVAC controller sold to commercial building operators for climate management and remote monitoring.",
+        "is_staple_commercial_product": "false",
+        "staple_reasoning": "The ClimaCore Pro is specifically designed for the patented HVAC control and predictive maintenance application with no substantial non-infringing use",
+        "has_non_infringing_uses": "false"
+      },
+      "supplier_conduct": {
+        "has_reason_to_believe": "true",
+        "reason_to_believe_details": "Supplier was a former joint venture partner with the patent holder and participated in the development of the patented system.",
+        "provided_instructions_for_infringing_use": "true",
+        "instructions_details": "Installation manual references the patented predictive maintenance algorithm by name and includes configuration steps from the patent specification.",
+        "induced_or_advertised_infringing_use": "true",
+        "inducement_details": "Trade show materials describe the product as 'fully compatible with and equivalent to' the patented system."
+      },
+      "claims": {
+        "claim_text": "A smart HVAC control unit comprising a temperature and humidity sensor array, a compressor control module configured to modulate cooling output, a predictive maintenance module adapted to forecast component failure, and a wireless reporting unit",
+        "structured_elements": [
+          { "id": "e1", "text": "smart HVAC control unit", "essential": true },
+          { "id": "e2", "text": "temperature and humidity sensor array", "essential": true },
+          { "id": "e3", "text": "compressor control module configured to modulate cooling output", "essential": true },
+          { "id": "e4", "text": "predictive maintenance module adapted to forecast component failure", "essential": true },
+          { "id": "e5", "text": "wireless reporting unit", "essential": true }
+        ],
+        "accused_product_description": "The ClimaCore Pro includes temperature and humidity sensors, a variable-speed compressor driver board, a basic fault logging system that records error codes but does not predict failures, and WiFi connectivity for sending status reports to a cloud dashboard.",
+        "element_mapping_facts": {
+          "e1": "ClimaCore Pro is a smart HVAC control unit — matched",
+          "e2": "Temperature and humidity sensors present — matched",
+          "e3": "Variable-speed compressor driver board — may or may not be a 'compressor control module' with 'modulate cooling output' capability",
+          "e4": "Fault logging system records errors but does not predict failures — unclear if this is a 'predictive maintenance module'",
+          "e5": "WiFi to cloud dashboard — may or may not qualify as a 'wireless reporting unit' distinct from general connectivity"
+        },
+        "disputed_element_notes": "The term 'compressor control module configured to modulate' is disputed — the accused product uses a driver board, not a dedicated module. The term 'predictive maintenance module adapted to forecast' is highly contested — the accused product only logs faults, it does not predict failures. The 'wireless reporting unit' may require a dedicated reporting component vs general WiFi.",
+        "claim_construction_disputed": true,
+        "specification_notes": "The specification describes a dedicated compressor control ASIC and a machine-learning-based predictive maintenance system. The wireless reporting unit is described as a separate radio transceiver with its own processor."
+      },
+      "evidence": {
+        "has_expert_evidence": true,
+        "has_documentary_evidence": true,
+        "has_advertising_evidence": true,
+        "has_customer_testimony": true,
+        "evidence_notes": "Former JV partner; trade show materials, installation manuals, and customer testimony about compatibility claims all available."
+      }
+    }
+  }
+]

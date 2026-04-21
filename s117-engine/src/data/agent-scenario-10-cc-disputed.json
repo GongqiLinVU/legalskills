@@ -1,0 +1,25 @@
+{
+  "patent_context": {
+    "patent_number": "AU2020200891",
+    "patent_title": "Smart garden irrigation system with adaptive scheduling",
+    "relevant_claims": ["1", "3"],
+    "claim_description": "A smart irrigation controller comprising a soil moisture sensor, a wireless communication module for transmitting sensor data, and an adaptive watering schedule algorithm configured to adjust irrigation timing based on real-time soil moisture readings"
+  },
+  "claims": {
+    "claim_text": "A smart irrigation controller comprising a soil moisture sensor, a wireless communication module for transmitting sensor data, and an adaptive watering schedule algorithm configured to adjust irrigation timing based on real-time soil moisture readings",
+    "structured_elements": [
+      { "id": "e1", "text": "soil moisture sensor", "essential": true },
+      { "id": "e2", "text": "wireless communication module for transmitting sensor data", "essential": true },
+      { "id": "e3", "text": "adaptive watering schedule algorithm configured to adjust irrigation timing", "essential": true },
+      { "id": "e4", "text": "based on real-time soil moisture readings", "essential": true }
+    ],
+    "accused_product_description": "The GreenBot G5 controller includes a capacitive soil sensor, Bluetooth data link to a phone app, and a preset watering timer that users can manually adjust after checking soil readings on their phone.",
+    "element_mapping_facts": {
+      "e1": "Capacitive soil sensor present — matched",
+      "e2": "Bluetooth data link may or may not constitute a 'wireless communication module' — the claim may require a dedicated module rather than a phone link"
+    },
+    "disputed_element_notes": "The term 'wireless communication module' is disputed — does a Bluetooth phone link qualify as a 'module'? The phrase 'adaptive watering schedule algorithm' is also contested — the accused product uses manual timer adjustment, not an autonomous algorithm. The term 'configured to' may imply either inherent capability or active configuration.",
+    "claim_construction_disputed": true,
+    "specification_notes": "The patent specification describes a dedicated wireless radio module and an on-device algorithm that operates without user intervention. This suggests a narrower interpretation of both the communication module and the adaptive algorithm."
+  }
+}

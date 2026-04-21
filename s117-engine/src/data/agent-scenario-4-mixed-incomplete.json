@@ -1,0 +1,47 @@
+{
+  "description": "Agent Scenario 4: Mixed / incomplete input — expected: multiple issues detected, s117 returns insufficient_information, unimplemented skills flagged",
+  "case_summary": "A competitor is selling a device that may infringe both directly and indirectly. The patent holder suspects the device copies the claimed mechanism but also believes the competitor is supplying components to third parties. Claim construction is disputed, and there is a prior art argument. Input is deliberately incomplete to test graceful degradation.",
+  "patent_context": {
+    "patent_number": "AU2022200123",
+    "patent_title": "Adaptive cooling system for industrial machinery",
+    "relevant_claims": ["1", "3", "7"],
+    "claim_description": "A cooling system comprising a variable-speed pump and adaptive thermostat for maintaining optimal operating temperature"
+  },
+  "product": {
+    "product_name": "CoolFlow Adaptive Pump Module",
+    "product_description": "A variable-speed pump module marketed for industrial cooling applications"
+  },
+  "supplier_conduct": {
+    "has_reason_to_believe": "uncertain",
+    "reason_to_believe_details": "Supplier may have seen the patent but this is not confirmed"
+  },
+  "claims": {
+    "claim_text": "A cooling system comprising: a variable-speed pump; an adaptive thermostat; a feedback loop for maintaining temperature within ±2°C of target.",
+    "claim_elements": [
+      "variable-speed pump",
+      "adaptive thermostat",
+      "feedback loop for temperature control"
+    ],
+    "accused_product_description": "CoolFlow module includes a variable-speed pump and temperature sensor, but feedback loop implementation is unclear",
+    "claim_construction_disputed": true
+  },
+  "prior_art": {
+    "prior_art_references": [
+      {
+        "reference_id": "US6789012",
+        "title": "Variable speed pump for HVAC systems",
+        "date": "2015-03-12",
+        "relevance_summary": "Discloses a variable-speed pump with temperature feedback, but for HVAC rather than industrial cooling"
+      }
+    ],
+    "novelty_contested": true,
+    "inventive_step_contested": true
+  },
+  "evidence": {
+    "has_expert_evidence": false,
+    "has_documentary_evidence": false,
+    "has_advertising_evidence": false,
+    "has_customer_testimony": false,
+    "evidence_notes": "Limited evidence gathered so far"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(npx ts-node *)",
+      "Bash(curl -s http://localhost:3000/api/health)",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s -X POST http://localhost:3000/api/s117/evaluate -H \"Content-Type: application/json\" -d @src/data/scenario-1-staple-no-inducement.json)",
+      "Bash(curl -s -X POST http://localhost:3000/api/s117/evaluate -H \"Content-Type: application/json\" -d @src/data/scenario-2-nonstaple-likely-infringement.json)",
+      "Bash(curl -s -X POST http://localhost:3000/api/s117/evaluate -H \"Content-Type: application/json\" -d @src/data/scenario-3-staple-with-inducement.json)",
+      "Bash(curl -s -X POST http://localhost:3000/api/s117/evaluate -H \"Content-Type: application/json\" -d '{}')",
+      "Bash(npm create *)",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs kill *)",
+      "Bash(npx vite *)",
+      "Bash(npm run *)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Module:', d['module']\\); print\\('Result:', d['likely_result']\\); print\\('Confidence:', d['confidence']\\)\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Module:', d['module']\\); print\\('Result:', d['likely_result']\\); print\\('Confidence:', d['confidence']\\); print\\('Elements:'\\); [print\\(f'  {e[\\\\\"element_id\\\\\"]}: {e[\\\\\"match_result\\\\\"]}'\\) for e in d['element_results']]\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(f'{e[\\\\\"element_id\\\\\"]}: {e[\\\\\"match_result\\\\\"]} — {e[\\\\\"reasoning\\\\\"]}'\\) for e in d['element_results']]\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Result:', d['overall_result']\\)\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Result:', d['likely_result'], d['confidence']\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s -X POST http://localhost:3000/api/s117/evaluate -H \"Content-Type: application/json\" -d \"@src/data/scenario-2-nonstaple-likely-infringement.json\")",
+      "Bash(node dist/index.js)"
+    ]
+  }
+}

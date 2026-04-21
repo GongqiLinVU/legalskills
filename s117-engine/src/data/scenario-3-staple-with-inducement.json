@@ -1,0 +1,31 @@
+{
+  "description": "Scenario 3: Staple product BUT with explicit instructions and inducement — expected: possible_infringement",
+  "patent_context": {
+    "patent_number": "AU2021100789",
+    "patent_title": "Method for enhanced concrete curing using polymer additives",
+    "relevant_claims": ["1", "4"],
+    "claim_description": "A method of curing concrete involving the application of a specific polymer additive at controlled temperatures"
+  },
+  "product": {
+    "product_name": "PolyCure Standard Polymer Additive (25kg bag)",
+    "product_description": "A polymer additive commonly used in construction for various concrete treatment purposes. Widely available from multiple suppliers.",
+    "is_staple_commercial_product": "true",
+    "staple_reasoning": "Polymer additives for concrete are widely sold commodity products with many uses beyond the patented method",
+    "has_non_infringing_uses": "true"
+  },
+  "supplier_conduct": {
+    "has_reason_to_believe": "true",
+    "reason_to_believe_details": "Supplier was sent a cease-and-desist letter identifying the patent and explaining the infringing use. Supplier continued sales.",
+    "provided_instructions_for_infringing_use": "true",
+    "instructions_details": "Supplier's product data sheet includes a specific section titled 'Enhanced Curing Method' that replicates the patented process step by step",
+    "induced_or_advertised_infringing_use": "true",
+    "inducement_details": "Supplier ran trade magazine advertisements promoting their product specifically for the enhanced curing method described in the patent"
+  },
+  "evidence_flags": {
+    "has_expert_evidence": false,
+    "has_documentary_evidence": true,
+    "has_advertising_evidence": true,
+    "has_customer_testimony": false,
+    "evidence_notes": "Cease-and-desist letter on file; advertising materials and product data sheet available"
+  }
+}

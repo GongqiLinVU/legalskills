@@ -1,0 +1,51 @@
+{
+  "patent_context": {
+    "patent_number": "AU2023100123",
+    "patent_title": "Smart HVAC control unit with predictive maintenance module",
+    "relevant_claims": ["1", "5"],
+    "claim_description": "A smart HVAC control unit comprising a temperature and humidity sensor array, a compressor control module configured to modulate cooling output, a predictive maintenance module adapted to forecast component failure, and a wireless reporting unit"
+  },
+  "product": {
+    "product_name": "ClimaCore Pro Controller",
+    "product_description": "A smart HVAC controller sold to commercial building operators for climate management and remote monitoring.",
+    "is_staple_commercial_product": "false",
+    "staple_reasoning": "The ClimaCore Pro is specifically designed for the patented HVAC control and predictive maintenance application with no substantial non-infringing use",
+    "has_non_infringing_uses": "false"
+  },
+  "supplier_conduct": {
+    "has_reason_to_believe": "true",
+    "reason_to_believe_details": "Supplier was a former joint venture partner with the patent holder and participated in the development of the patented system.",
+    "provided_instructions_for_infringing_use": "true",
+    "instructions_details": "Installation manual references the patented predictive maintenance algorithm by name and includes configuration steps from the patent specification.",
+    "induced_or_advertised_infringing_use": "true",
+    "inducement_details": "Trade show materials describe the product as 'fully compatible with and equivalent to' the patented system."
+  },
+  "claims": {
+    "claim_text": "A smart HVAC control unit comprising a temperature and humidity sensor array, a compressor control module configured to modulate cooling output, a predictive maintenance module adapted to forecast component failure, and a wireless reporting unit",
+    "structured_elements": [
+      { "id": "e1", "text": "smart HVAC control unit", "essential": true },
+      { "id": "e2", "text": "temperature and humidity sensor array", "essential": true },
+      { "id": "e3", "text": "compressor control module configured to modulate cooling output", "essential": true },
+      { "id": "e4", "text": "predictive maintenance module adapted to forecast component failure", "essential": true },
+      { "id": "e5", "text": "wireless reporting unit", "essential": true }
+    ],
+    "accused_product_description": "The ClimaCore Pro includes temperature and humidity sensors, a variable-speed compressor driver board, a basic fault logging system that records error codes but does not predict failures, and WiFi connectivity for sending status reports to a cloud dashboard.",
+    "element_mapping_facts": {
+      "e1": "ClimaCore Pro is a smart HVAC control unit — matched",
+      "e2": "Temperature and humidity sensors present — matched",
+      "e3": "Variable-speed compressor driver board — may or may not be a 'compressor control module' with 'modulate cooling output' capability",
+      "e4": "Fault logging system records errors but does not predict failures — unclear if this is a 'predictive maintenance module'",
+      "e5": "WiFi to cloud dashboard — may or may not qualify as a 'wireless reporting unit' distinct from general connectivity"
+    },
+    "disputed_element_notes": "The term 'compressor control module configured to modulate' is disputed — the accused product uses a driver board, not a dedicated module. The term 'predictive maintenance module adapted to forecast' is highly contested — the accused product only logs faults, it does not predict failures. The 'wireless reporting unit' may require a dedicated reporting component vs general WiFi.",
+    "claim_construction_disputed": true,
+    "specification_notes": "The specification describes a dedicated compressor control ASIC and a machine-learning-based predictive maintenance system. The wireless reporting unit is described as a separate radio transceiver with its own processor."
+  },
+  "evidence": {
+    "has_expert_evidence": true,
+    "has_documentary_evidence": true,
+    "has_advertising_evidence": true,
+    "has_customer_testimony": true,
+    "evidence_notes": "Former JV partner; trade show materials, installation manuals, and customer testimony about compatibility claims all available."
+  }
+}

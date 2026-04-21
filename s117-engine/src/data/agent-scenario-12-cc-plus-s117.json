@@ -1,0 +1,51 @@
+{
+  "patent_context": {
+    "patent_number": "AU2021100789",
+    "patent_title": "Portable air quality monitoring device with wireless alert system",
+    "relevant_claims": ["1", "4"],
+    "claim_description": "A portable air quality monitoring device comprising a particulate matter sensor module, a gas detection unit, a wireless communication module configured to transmit alert data, and a threshold-based notification mechanism"
+  },
+  "product": {
+    "product_name": "AirSafe Mini Sensor Kit",
+    "product_description": "A compact air quality sensor kit sold to building managers and HVAC contractors for indoor air monitoring. The kit includes a PM2.5 sensor, a VOC gas sensor, WiFi connectivity, and an app-based alert system.",
+    "is_staple_commercial_product": "false",
+    "staple_reasoning": "The AirSafe Mini is specifically designed for the patented air quality monitoring and alert application and has no substantial non-infringing use beyond this purpose",
+    "has_non_infringing_uses": "false"
+  },
+  "supplier_conduct": {
+    "has_reason_to_believe": "true",
+    "reason_to_believe_details": "The supplier was previously a contract manufacturer for the patent holder and has detailed knowledge of the patented system design.",
+    "provided_instructions_for_infringing_use": "true",
+    "instructions_details": "Setup guide describes configuring the device in the same manner as the patented system, referencing alert thresholds from the patent specification.",
+    "induced_or_advertised_infringing_use": "true",
+    "inducement_details": "Marketing materials describe the product as a 'compatible alternative' to the patented monitoring system."
+  },
+  "claims": {
+    "claim_text": "A portable air quality monitoring device comprising a particulate matter sensor module, a gas detection unit, a wireless communication module configured to transmit alert data, and a threshold-based notification mechanism",
+    "structured_elements": [
+      { "id": "e1", "text": "portable air quality monitoring device", "essential": true },
+      { "id": "e2", "text": "particulate matter sensor module", "essential": true },
+      { "id": "e3", "text": "gas detection unit", "essential": true },
+      { "id": "e4", "text": "wireless communication module configured to transmit alert data", "essential": true },
+      { "id": "e5", "text": "threshold-based notification mechanism", "essential": true }
+    ],
+    "accused_product_description": "The AirSafe Mini includes a PM2.5 sensor, a VOC gas sensor, WiFi connectivity for sending data to a cloud dashboard, and an app-based push notification system with configurable thresholds.",
+    "element_mapping_facts": {
+      "e1": "AirSafe Mini is a portable air quality monitoring device — matched",
+      "e2": "PM2.5 sensor present — matched",
+      "e3": "VOC gas sensor present — matched",
+      "e4": "WiFi connectivity transmits data to cloud — may or may not constitute a 'wireless communication module' as a distinct component",
+      "e5": "App-based push notifications with configurable thresholds — matches threshold-based notification"
+    },
+    "disputed_element_notes": "The term 'wireless communication module' is disputed — is WiFi connectivity to a cloud dashboard the same as a dedicated 'module configured to transmit alert data'? The term 'module' may require a discrete hardware component. The term 'configured to' in element e4 is also ambiguous — does it require hardware configuration or software configuration?",
+    "claim_construction_disputed": true,
+    "specification_notes": "The patent specification describes a dedicated radio transceiver module for direct device-to-device alert transmission, not cloud-mediated notifications."
+  },
+  "evidence": {
+    "has_expert_evidence": true,
+    "has_documentary_evidence": true,
+    "has_advertising_evidence": true,
+    "has_customer_testimony": false,
+    "evidence_notes": "Former contract manufacturer with detailed knowledge; marketing materials and setup guide available as evidence."
+  }
+}
