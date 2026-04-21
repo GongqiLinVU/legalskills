@@ -18,12 +18,12 @@ interface Props {
 }
 
 const STATUS_LABELS: Record<SkillStatus, string> = {
-  likely_infringement: "Likely Infringement",
-  possible_infringement: "Possible Infringement",
-  unlikely_infringement: "Unlikely Infringement",
+  likely_infringement: "Infringement Likely",
+  possible_infringement: "Infringement Possible — Construction-Sensitive",
+  unlikely_infringement: "Infringement Unlikely",
   insufficient_information: "Insufficient Information",
-  issue_detected: "Issue Detected",
-  no_issue_detected: "No Issue Detected",
+  issue_detected: "Issue Identified",
+  no_issue_detected: "No Issue Identified",
   not_applicable: "Not Applicable",
 };
 
@@ -39,20 +39,28 @@ const STATUS_COLORS: Record<SkillStatus, string> = {
 
 const CONFIDENCE_LABELS: Record<Confidence, string> = {
   high: "High Confidence",
-  medium: "Medium Confidence",
-  low: "Low Confidence",
+  medium: "Moderate Confidence",
+  low: "Low Confidence — Further Analysis Recommended",
 };
 
 const ISSUE_LABELS: Record<LegalIssue, string> = {
-  s117_indirect_infringement: "s117 Indirect Infringement",
+  s117_indirect_infringement: "Indirect Infringement (s117 Patents Act)",
   direct_infringement: "Direct Infringement",
-  validity_novelty: "Validity (Novelty)",
-  validity_inventive_step: "Validity (Inventive Step)",
+  validity_novelty: "Validity — Novelty",
+  validity_inventive_step: "Validity — Inventive Step",
   claim_construction: "Claim Construction",
-  unknown: "Unknown / Unclassified",
+  unknown: "Unclassified Issue",
+};
+
+const SKILL_DISPLAY_NAMES: Record<string, string> = {
+  issue_classifier_skill: "Issue Identification",
+  claim_construction_skill: "Claim Construction",
+  direct_infringement_skill: "Direct Infringement",
+  s117_skill: "s117 Supplier Liability",
 };
 
 function formatName(name: string): string {
+  if (SKILL_DISPLAY_NAMES[name]) return SKILL_DISPLAY_NAMES[name];
   return name
     .replace(/_/g, " ")
     .replace(/\b\w/g, (c) => c.toUpperCase());
@@ -65,9 +73,9 @@ function StepIcon({ result }: { result: boolean | string }) {
 }
 
 const IMPACT_LABELS: Record<string, string> = {
-  likely_affects: "Likely Affects",
-  may_affect: "May Affect",
-  unlikely_to_affect: "Unlikely to Affect",
+  likely_affects: "Likely to Change Outcome",
+  may_affect: "May Affect Outcome",
+  unlikely_to_affect: "Unlikely to Affect Outcome",
 };
 
 const IMPACT_COLORS: Record<string, string> = {
@@ -77,11 +85,11 @@ const IMPACT_COLORS: Record<string, string> = {
 };
 
 const AMBIGUITY_LABELS: Record<string, string> = {
-  functional_term: "Functional Term",
-  vague_relational: "Vague / Relational",
-  contextual_term: "Contextual Term",
-  specification_dependent: "Specification Dependent",
-  disputed_by_user: "Disputed by User",
+  functional_term: "Functional Language",
+  vague_relational: "Vague or Relational Term",
+  contextual_term: "Context-Dependent Term",
+  specification_dependent: "Specification-Dependent",
+  disputed_by_user: "Expressly Disputed",
 };
 
 function ConstructionTermCard({ term }: { term: ConstructionTerm }) {
@@ -120,7 +128,7 @@ function ConstructionSection({ raw }: { raw: ClaimConstructionResult }) {
 
   return (
     <div className="construction-section">
-      <h5 className="skill-steps-title">Construction Terms</h5>
+      <h5 className="skill-steps-title">Terms Requiring Construction</h5>
       <div className="construction-terms-list">
         {raw.construction_terms.map((term, i) => (
           <ConstructionTermCard key={i} term={term} />
@@ -128,10 +136,10 @@ function ConstructionSection({ raw }: { raw: ClaimConstructionResult }) {
       </div>
       {raw.downstream_effect && (
         <div className="construction-downstream">
-          <span className="construction-label">Downstream Effect:</span>{" "}
+          <span className="construction-label">Impact on Infringement Analysis:</span>{" "}
           {raw.downstream_effect.affects_direct_infringement
-            ? "Affects direct infringement analysis"
-            : "Does not affect direct infringement analysis"}
+            ? "Construction may change the infringement outcome"
+            : "Construction unlikely to affect the infringement outcome"}
           {raw.downstream_effect.affects_direct_infringement && (
             <span className="construction-mode-tag">
               {formatName(raw.downstream_effect.recommended_mode)}
@@ -144,8 +152,8 @@ function ConstructionSection({ raw }: { raw: ClaimConstructionResult }) {
 }
 
 const MATCH_LABELS: Record<MatchResult, string> = {
-  matched: "Matched",
-  not_matched: "Not Matched",
+  matched: "Present",
+  not_matched: "Not Present",
   uncertain: "Uncertain",
 };
 
@@ -164,10 +172,10 @@ function ElementModeCard({ element }: { element: ElementModeMatchResult }) {
         <span className="element-mode-id">{element.element_id}</span>
         <span className="element-mode-text">{element.element_text}</span>
         {element.affected_by_construction && (
-          <span className="scenario-tag tag--amber">Construction-Affected</span>
+          <span className="scenario-tag tag--amber">Construction-Sensitive</span>
         )}
         {isDivergent && (
-          <span className="scenario-tag tag--red">Divergent</span>
+          <span className="scenario-tag tag--red">Outcome Differs by Construction</span>
         )}
       </div>
       <div className="element-mode-body">
@@ -217,16 +225,16 @@ function DIConstructionSensitiveSection({ raw }: { raw: DirectInfringementRawRes
 
   return (
     <div className="di-construction-section">
-      <h5 className="skill-steps-title">Construction-Driven Analysis</h5>
+      <h5 className="skill-steps-title">Construction-Sensitive Analysis</h5>
       <div className="di-construction-banner">
         {hasDivergence?.is_divergent
-          ? "This result is interpretation-sensitive. Broad and narrow readings produce different infringement outcomes."
-          : "Construction-driven matching was applied. The outcome may depend on how disputed claim terms are construed."}
+          ? "The infringement outcome depends on how the disputed claim terms are construed. Broad and narrow constructions produce different results."
+          : "The analysis has considered both broad and narrow constructions of the disputed claim terms."}
       </div>
 
       {hasDivergence && (
         <div className="di-divergence-summary">
-          <span className="construction-label">Divergence Assessment:</span>{" "}
+          <span className="construction-label">Construction Impact:</span>{" "}
           {hasDivergence.summary}
         </div>
       )}
@@ -234,13 +242,13 @@ function DIConstructionSensitiveSection({ raw }: { raw: DirectInfringementRawRes
       {hasOutcomeProfile && (
         <div className="di-broad-narrow">
           <div className="di-view-row">
-            <span className="di-view-label">Under broad construction:</span>
+            <span className="di-view-label">Broad construction:</span>
             <span className={`skill-result-badge ${STATUS_COLORS[hasOutcomeProfile.broad_view as SkillStatus] ?? "result-badge--grey"}`}>
               {STATUS_LABELS[hasOutcomeProfile.broad_view as SkillStatus] ?? hasOutcomeProfile.broad_view}
             </span>
           </div>
           <div className="di-view-row">
-            <span className="di-view-label">Under narrow construction:</span>
+            <span className="di-view-label">Narrow construction:</span>
             <span className={`skill-result-badge ${STATUS_COLORS[hasOutcomeProfile.narrow_view as SkillStatus] ?? "result-badge--grey"}`}>
               {STATUS_LABELS[hasOutcomeProfile.narrow_view as SkillStatus] ?? hasOutcomeProfile.narrow_view}
             </span>
@@ -251,13 +259,13 @@ function DIConstructionSensitiveSection({ raw }: { raw: DirectInfringementRawRes
       {!hasOutcomeProfile && raw.outcome_under_broad_view && raw.outcome_under_narrow_view && (
         <div className="di-broad-narrow">
           <div className="di-view-row">
-            <span className="di-view-label">Under broad construction:</span>
+            <span className="di-view-label">Broad construction:</span>
             <span className={`skill-result-badge ${STATUS_COLORS[raw.outcome_under_broad_view as SkillStatus] ?? "result-badge--grey"}`}>
               {STATUS_LABELS[raw.outcome_under_broad_view as SkillStatus] ?? raw.outcome_under_broad_view}
             </span>
           </div>
           <div className="di-view-row">
-            <span className="di-view-label">Under narrow construction:</span>
+            <span className="di-view-label">Narrow construction:</span>
             <span className={`skill-result-badge ${STATUS_COLORS[raw.outcome_under_narrow_view as SkillStatus] ?? "result-badge--grey"}`}>
               {STATUS_LABELS[raw.outcome_under_narrow_view as SkillStatus] ?? raw.outcome_under_narrow_view}
             </span>
@@ -267,7 +275,7 @@ function DIConstructionSensitiveSection({ raw }: { raw: DirectInfringementRawRes
 
       {hasElementModeResults && (
         <div className="di-element-mode-section">
-          <h5 className="skill-steps-title">Element-Level Breakdown</h5>
+          <h5 className="skill-steps-title">Integer-by-Integer Analysis</h5>
           <div className="element-mode-list">
             {raw.element_mode_results!.map((elem) => (
               <ElementModeCard key={elem.element_id} element={elem} />
@@ -317,7 +325,7 @@ function SkillResultCard({ skill }: { skill: SkillOutput }) {
         {skill.decision_path.length > 0 && (
           <div className="skill-steps">
             <h5 className="skill-steps-title">
-              {isClassifier ? "Detected Issues" : "Decision Trace"}
+              {isClassifier ? "Issues Identified" : "Reasoning Steps"}
             </h5>
             {skill.decision_path.map((step: DecisionStep, i: number) => (
               <div key={i} className="step-card">
@@ -363,7 +371,7 @@ export function AgentResultPanel({ result, onReset }: Props) {
   return (
     <div className="result-panel">
       <div className="result-header">
-        <h2>Agent Assessment Result</h2>
+        <h2>Preliminary Assessment</h2>
         <button className="btn btn--secondary" onClick={onReset}>
           New Assessment
         </button>
@@ -380,7 +388,7 @@ export function AgentResultPanel({ result, onReset }: Props) {
       </div>
 
       <div className="result-section">
-        <h3>Detected Issues</h3>
+        <h3>Legal Issues Identified</h3>
         <div className="issue-tags">
           {result.detected_issues.map((issue) => (
             <span key={issue} className="issue-tag">
@@ -389,14 +397,14 @@ export function AgentResultPanel({ result, onReset }: Props) {
           ))}
           {result.detected_issues.length === 0 && (
             <span className="issue-tag issue-tag--none">
-              No issues detected
+              No issues identified
             </span>
           )}
         </div>
       </div>
 
       <div className="result-section">
-        <h3>Skills Executed</h3>
+        <h3>Analysis Performed</h3>
         <div className="skill-pipeline">
           {result.selected_skills.map((name, i) => (
             <span key={name} className="pipeline-skill">
@@ -408,12 +416,12 @@ export function AgentResultPanel({ result, onReset }: Props) {
       </div>
 
       <div className="result-section">
-        <h3>Explanation</h3>
+        <h3>Summary</h3>
         <p className="explanation-text">{result.explanation}</p>
       </div>
 
       <div className="result-section">
-        <h3>Skill Results</h3>
+        <h3>Detailed Analysis</h3>
         <div className="skill-results-list">
           {result.skill_results.map((skill) => (
             <SkillResultCard key={skill.skill} skill={skill} />
@@ -423,7 +431,7 @@ export function AgentResultPanel({ result, onReset }: Props) {
 
       {suggestedNextSkills.length > 0 && (
         <div className="result-section">
-          <h3>Suggested Next Skills</h3>
+          <h3>Further Analysis Recommended</h3>
           <div className="suggested-skills">
             {suggestedNextSkills.map((name) => (
               <span key={name} className="suggested-skill-tag">
@@ -432,15 +440,15 @@ export function AgentResultPanel({ result, onReset }: Props) {
             ))}
           </div>
           <p className="suggested-skills-note">
-            These skills are recommended for further analysis but may not yet
-            be implemented in this version.
+            The following areas of analysis are recommended but may not yet
+            be available in this version.
           </p>
         </div>
       )}
 
       {result.warnings.length > 0 && (
         <div className="result-section">
-          <h3>Warnings &amp; Disclaimers</h3>
+          <h3>Caveats &amp; Limitations</h3>
           <ul className="warnings-list">
             {result.warnings.map((w, i) => (
               <li key={i} className="warning-item">{w}</li>

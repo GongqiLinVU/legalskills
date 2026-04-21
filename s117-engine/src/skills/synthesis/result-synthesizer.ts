@@ -99,30 +99,35 @@ function buildConstructionDrivenSynthesis(skillResults: SkillOutput[]): string |
 
   if (sensitiveTerms.length > 0) {
     parts.push(
-      `Claim construction identified ${sensitiveTerms.length} interpretation-sensitive term(s): ${sensitiveTerms.join(", ")}.`
-    );
-  }
-
-  if (di.divergence.divergent_elements.length > 0) {
-    parts.push(
-      `${di.divergence.divergent_elements.length} element(s) changed outcome between broad and narrow modes: ${di.divergence.divergent_elements.join(", ")}.`
+      `The construction of ${sensitiveTerms.length} claim term(s) is in dispute: ${sensitiveTerms.join(", ")}.`
     );
   }
 
   if (di.divergence.is_divergent) {
     parts.push(
-      `The infringement result is interpretation-sensitive. ` +
-      `Under the broader reading of the disputed terms, the outcome is ${di.outcome_profile.broad_view.replace(/_/g, " ")}. ` +
-      `Under the narrower reading, the outcome is ${di.outcome_profile.narrow_view.replace(/_/g, " ")}.`
+      `The outcome turns on how these terms are construed. ` +
+      `Under the broader construction, the assessment is ${di.outcome_profile.broad_view.replace(/_/g, " ")}. ` +
+      `Under the narrower construction, the assessment is ${di.outcome_profile.narrow_view.replace(/_/g, " ")}.`
     );
+    if (di.divergence.divergent_elements.length > 0) {
+      parts.push(
+        `${di.divergence.divergent_elements.length} claim integer(s) are affected by the choice of construction.`
+      );
+    }
   } else {
     parts.push(
-      `The liability assessment is stable across both interpretation modes: ${di.outcome_profile.broad_view.replace(/_/g, " ")}.`
+      `The assessment is stable regardless of which construction is adopted: ${di.outcome_profile.broad_view.replace(/_/g, " ")}.`
     );
   }
 
   return parts.join(" ");
 }
+
+const ISSUE_DESCRIPTIONS: Record<string, string> = {
+  direct_infringement: "whether the accused product directly infringes the patent claims",
+  claim_construction: "whether the meaning of certain claim terms is disputed and may affect the outcome",
+  s117_indirect_infringement: "whether the supplier may be liable for indirect infringement under s117 of the Patents Act 1990",
+};
 
 function buildExplanation(
   detectedIssues: LegalIssue[],
@@ -131,8 +136,14 @@ function buildExplanation(
 ): string {
   const parts: string[] = [];
 
+  const issueDescriptions = detectedIssues
+    .map((issue, i) => `(${i + 1}) ${ISSUE_DESCRIPTIONS[issue] ?? issue}`)
+    .join("; ");
+
   parts.push(
-    `The agent identified ${detectedIssues.length} legal issue(s): ${detectedIssues.join(", ")}.`
+    detectedIssues.length === 1
+      ? `One legal question arises from this fact pattern: ${issueDescriptions}.`
+      : `${detectedIssues.length} legal questions arise from this fact pattern: ${issueDescriptions}.`
   );
 
   const substantive = skillResults.filter(
@@ -140,15 +151,12 @@ function buildExplanation(
   );
 
   if (substantive.length > 0) {
-    parts.push(
-      `${substantive.length} skill(s) were executed to analyse these issues.`
-    );
     for (const r of substantive) {
-      parts.push(`[${r.skill}] ${r.explanation}`);
+      parts.push(r.explanation);
     }
   } else {
     parts.push(
-      "No substantive analysis skills were executed — either no implemented skills match the detected issues, or input was insufficient."
+      "The information provided was not sufficient to perform substantive analysis on the identified issues."
     );
   }
 
@@ -169,7 +177,7 @@ function collectWarnings(
   selectedSkills: string[]
 ): string[] {
   const warnings: string[] = [
-    "This is a prototype legal reasoning system, not legal advice.",
+    "This analysis is preliminary and based on the information provided. It does not constitute legal advice and should not be relied upon in place of formal legal opinion.",
   ];
 
   const substantiveSkills = new Set(
@@ -193,8 +201,11 @@ function collectWarnings(
   });
 
   if (unhandled.length > 0) {
+    const unhandledDescriptions = unhandled
+      .map((issue) => ISSUE_DESCRIPTIONS[issue] ?? issue)
+      .join("; ");
     warnings.push(
-      `Detected issues without implemented skills: ${unhandled.join(", ")}. These could not be analysed.`
+      `The following issues were identified but could not be analysed with the available tools: ${unhandledDescriptions}.`
     );
   }
 

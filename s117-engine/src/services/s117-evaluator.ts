@@ -15,9 +15,9 @@ import {
 } from "../rules/s117";
 
 const DISCLAIMER_WARNINGS = [
-  "This is a prototype legal reasoning tool, not legal advice.",
-  "Outcome depends heavily on factual characterisation of the product and evidence of supplier conduct.",
-  "This module addresses s117 supply-liability only — it does not assess direct infringement, validity, or other causes of action.",
+  "This analysis does not constitute legal advice. The assessment is based on the factual characterisation provided and may differ upon closer examination of the evidence.",
+  "The outcome depends on how the product and supplier conduct are characterised on the facts. Matters of evidence and credibility may affect the result.",
+  "This analysis addresses supplier liability under s117 of the Patents Act 1990 (Cth) only. It does not assess direct infringement, patent validity, or other causes of action.",
 ];
 
 export function evaluateS117(

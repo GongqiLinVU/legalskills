@@ -71,33 +71,30 @@ export function evaluateDirectInfringement(
   );
 
   const warnings: string[] = [
-    "This is a prototype element-matching tool, not legal advice.",
-    "Element matching is heuristic — not a substitute for formal claim construction.",
+    "This analysis is based on the information provided and does not constitute a formal infringement opinion. A definitive assessment would require detailed consideration of the patent specification, prosecution history, and relevant case law.",
   ];
 
   if (!inputQuality.complete) {
     warnings.push(
-      `Input incomplete — missing: ${inputQuality.missing_fields.join(", ")}.`
+      `Incomplete information provided — missing: ${inputQuality.missing_fields.join(", ")}. The assessment may change once further details are available.`
     );
   }
 
   if (isConstructionSensitive) {
     warnings.push(
-      "Claim interpretation uncertainty detected. Results are construction-sensitive — " +
-      "outcome may change depending on how disputed terms are construed."
+      "The outcome depends on how certain disputed claim terms are construed. Results should be treated as provisional until claim construction is resolved."
     );
   }
 
   if (triggered_rules.includes("heuristic_element_parsing")) {
     warnings.push(
-      "Claim elements were parsed heuristically from claim text. Provide structured elements for higher accuracy."
+      "Claim integers were extracted automatically from the claim text. Providing a structured breakdown of claim integers would improve accuracy."
     );
   }
 
   if (hasConstructionMap && divergence?.is_divergent) {
     warnings.push(
-      "Construction-driven analysis reveals divergent outcomes under broad vs. narrow interpretation. " +
-      "The infringement conclusion depends on which claim construction is adopted."
+      "Broad and narrow constructions of the disputed terms produce different infringement outcomes. The conclusion depends on which construction is adopted by the court."
     );
   }
 
@@ -173,8 +170,8 @@ function consolidate(
       likely_result: "insufficient_information",
       confidence: "low",
       explanation:
-        "Insufficient input to perform direct infringement analysis. " +
-        "Both claim description and accused product description are needed.",
+        "Insufficient information to assess direct infringement. " +
+        "Both the patent claim and details of the accused product are required.",
     };
   }
 
@@ -183,8 +180,8 @@ function consolidate(
       likely_result: "insufficient_information",
       confidence: "low",
       explanation:
-        "No claim elements could be extracted or matched. " +
-        "Provide claim elements or a structured claim description.",
+        "No claim integers could be identified from the information provided. " +
+        "Please provide the claim text or a structured breakdown of the claim integers.",
     };
   }
 
@@ -199,25 +196,32 @@ function consolidate(
 
     const parts: string[] = [];
     parts.push(
-      `Baseline matching: ${matched.length} matched, ${notMatched.length} not matched, ${uncertain.length} uncertain ` +
-      `out of ${essentialResults.length} essential element(s).`
+      `Of the ${essentialResults.length} essential claim integers, ` +
+      `${matched.length} ${matched.length === 1 ? "is" : "are"} present in the accused product` +
+      (notMatched.length > 0 ? `, ${notMatched.length} ${notMatched.length === 1 ? "is" : "are"} not present` : "") +
+      (uncertain.length > 0 ? `, and ${uncertain.length} remain${uncertain.length === 1 ? "s" : ""} uncertain` : "") +
+      "."
     );
 
     if (divergence.is_divergent) {
       parts.push(
-        `Construction-driven analysis reveals divergent outcomes: ` +
-        `broad view → ${outcomeProfile.broad_view.replace(/_/g, " ")}, ` +
-        `narrow view → ${outcomeProfile.narrow_view.replace(/_/g, " ")}.`
+        `The outcome turns on claim construction. ` +
+        `Under the broader construction, the assessment is ${outcomeProfile.broad_view.replace(/_/g, " ")}. ` +
+        `Under the narrower construction, the assessment is ${outcomeProfile.narrow_view.replace(/_/g, " ")}.`
       );
-      parts.push(divergence.summary);
+      if (divergence.divergent_elements.length > 0) {
+        parts.push(
+          `${divergence.divergent_elements.length} claim integer(s) change between constructions.`
+        );
+      }
     } else if (divergence.divergent_elements.length > 0) {
       parts.push(
-        `Some elements differ between modes (${divergence.divergent_elements.join(", ")}), ` +
-        `but the overall outcome is stable: ${outcomeProfile.broad_view.replace(/_/g, " ")}.`
+        `Although ${divergence.divergent_elements.length} integer(s) are affected by the choice of construction, ` +
+        `the overall outcome is the same under both readings: ${outcomeProfile.broad_view.replace(/_/g, " ")}.`
       );
     } else {
       parts.push(
-        `Result is stable across both interpretation modes: ${outcomeProfile.broad_view.replace(/_/g, " ")}.`
+        `The outcome is stable regardless of which construction is adopted: ${outcomeProfile.broad_view.replace(/_/g, " ")}.`
       );
     }
 
@@ -233,11 +237,11 @@ function consolidate(
       likely_result: "unlikely_infringement",
       confidence: needsConstruction ? "low" : inputQuality.complete ? "high" : "medium",
       explanation:
-        `${notMatched.length} essential claim element(s) do not appear to be present in the accused product. ` +
-        "Under the all-elements rule, failure to satisfy even one essential element " +
-        "means direct infringement is unlikely." +
+        `${notMatched.length} essential claim integer(s) do not appear to be present in the accused product. ` +
+        "Under the all-elements rule, the accused product must take every essential integer of the claim. " +
+        "Direct infringement is unlikely on the information provided." +
         (needsConstruction
-          ? " However, claim interpretation is uncertain — this conclusion may change after claim construction."
+          ? " However, this conclusion is provisional — the assessment may change depending on how disputed claim terms are construed."
           : ""),
     };
   }
@@ -247,10 +251,10 @@ function consolidate(
       likely_result: "likely_infringement",
       confidence: needsConstruction ? "medium" : inputQuality.complete ? "high" : "medium",
       explanation:
-        `All ${essentialResults.length} essential claim element(s) appear to be matched in the accused product. ` +
-        "This supports a finding of direct infringement under the all-elements rule." +
+        `All ${essentialResults.length} essential claim integers appear to be present in the accused product. ` +
+        "On the information provided, direct infringement is likely under the all-elements rule." +
         (needsConstruction
-          ? " Note: claim interpretation uncertainty exists — formal claim construction is recommended."
+          ? " Note: the meaning of certain claim terms is in dispute. Formal claim construction may affect this assessment."
           : ""),
     };
   }
@@ -260,10 +264,10 @@ function consolidate(
       likely_result: "possible_infringement",
       confidence: "medium",
       explanation:
-        `${matched.length} element(s) matched and ${uncertain.length} remain uncertain. ` +
-        "Infringement is possible but cannot be confirmed without resolving the uncertain elements." +
+        `${matched.length} claim integer(s) are present in the accused product, but ${uncertain.length} remain uncertain. ` +
+        "Whether these uncertain integers are satisfied may depend on further factual investigation or claim construction." +
         (needsConstruction
-          ? " Claim construction is recommended to clarify disputed terms."
+          ? " Construction of the disputed claim terms is recommended before reaching a definitive view."
           : ""),
     };
   }
@@ -273,8 +277,8 @@ function consolidate(
       likely_result: "insufficient_information",
       confidence: "low",
       explanation:
-        "All essential elements are uncertain. Cannot determine infringement " +
-        "without further information or claim construction.",
+        "All essential claim integers are uncertain on the information provided. " +
+        "A meaningful infringement assessment cannot be made without further factual detail or claim construction.",
     };
   }
 
@@ -282,8 +286,8 @@ function consolidate(
     likely_result: "possible_infringement",
     confidence: "low",
     explanation:
-      "Mixed matching results. Some elements matched, some uncertain. " +
-      "Further analysis is needed to determine infringement.",
+      "The element-by-element comparison produces mixed results. " +
+      "Further information and analysis are needed to determine whether all essential claim integers are satisfied.",
   };
 }
 

@@ -189,19 +189,18 @@ export function evaluateClaimConstruction(
   );
 
   const warnings: string[] = [
-    "Claim construction is heuristic in this version and not a substitute for formal legal construction.",
+    "This analysis identifies potentially ambiguous claim terms but does not constitute formal claim construction. The interpretation of claim language may differ following a full construction hearing.",
   ];
 
   if (constructionTerms.length > 0 && affectsDI) {
     warnings.push(
-      "One or more claim terms may affect infringement analysis. " +
-      "Results should be treated as interpretation-sensitive."
+      "One or more claim terms require construction before a definitive infringement assessment can be made. The direct infringement analysis should be read in light of this uncertainty."
     );
   }
 
   if (input.claims?.specification_notes?.trim()) {
     warnings.push(
-      "Specification notes were considered but full specification parsing is not implemented in this version."
+      "Specification notes have been considered, but a complete construction analysis would require examination of the full specification, prosecution history, and relevant case law."
     );
   }
 
@@ -235,8 +234,8 @@ function consolidate(
       result: "no_construction_issue",
       confidence: "high",
       explanation:
-        "No ambiguous, functional, or context-dependent terms were detected in the claim language. " +
-        "Claim terms appear sufficiently clear for standard infringement analysis.",
+        "No ambiguous or disputed claim terms were identified. " +
+        "The claim language appears sufficiently clear to proceed with infringement analysis without a preliminary construction exercise.",
     };
   }
 
@@ -256,15 +255,21 @@ function consolidate(
       .map((t) => `"${t.term}"`)
       .join(", ");
 
+    const affectsSummary =
+      likelyAffects.length > 0 && mayAffect.length > 0
+        ? `Of these, ${likelyAffects.length} are likely to change the infringement outcome and ${mayAffect.length} may do so depending on the construction adopted.`
+        : likelyAffects.length > 0
+        ? `${likelyAffects.length === 1 ? "This term is" : "These terms are"} likely to change the infringement outcome depending on the construction adopted.`
+        : `${mayAffect.length === 1 ? "This term" : "These terms"} may affect the infringement outcome depending on the construction adopted.`;
+
     return {
       result: "interpretation_sensitive",
       confidence: disputed.length > 0 ? "medium" : "medium",
       explanation:
-        `The claim includes ${constructionTerms.length} term(s) whose meaning may be ambiguous or disputed: ${termList}. ` +
-        `${likelyAffects.length} term(s) are likely to affect, and ${mayAffect.length} may affect, ` +
-        "whether the accused product falls within the claim scope. " +
+        `The following claim terms require construction: ${termList}. ` +
+        `${affectsSummary}` +
         (affectsDI
-          ? "Direct infringement results should be treated as construction-sensitive."
+          ? " The direct infringement assessment below should be read as construction-sensitive."
           : ""),
     };
   }
@@ -274,8 +279,8 @@ function consolidate(
       result: "interpretation_sensitive",
       confidence: "low",
       explanation:
-        `${mayAffect.length} term(s) were identified with potential ambiguity that may affect downstream analysis. ` +
-        "The impact is uncertain and depends on which interpretation is adopted.",
+        `${mayAffect.length} claim term(s) have been identified as potentially ambiguous. ` +
+        "Whether these terms affect the infringement analysis depends on the construction adopted by the court.",
     };
   }
 
@@ -283,7 +288,7 @@ function consolidate(
     result: "no_construction_issue",
     confidence: "medium",
     explanation:
-      `${constructionTerms.length} term(s) were flagged but none are likely to materially affect ` +
-      "the current infringement analysis.",
+      `${constructionTerms.length} term(s) were noted as potentially ambiguous, but none are likely to materially affect ` +
+      "the infringement analysis on the information currently provided.",
   };
 }
